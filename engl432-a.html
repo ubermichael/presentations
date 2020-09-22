@@ -1,0 +1,815 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>XML &amp; The TEI Guidelines</title>
+
+    <meta name="description" content="A quick introduction to XML and the TEI Guidelines"/>
+    <meta name="author" content="Michael Joyce"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css" media="screen">
+      table{
+          color:lightgrey;
+      }
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <h1>XML &amp; the TEI Guidelines</h1>
+          <p>
+            Michael Joyce</a> <br>
+            Web and Data Services Developer<br>
+            Bennett Library, Simon Fraser University
+          </p>
+          <p>
+            <small>© Michael Joyce, ⅯⅯⅩⅤ</small><br>
+            <small>Some rights reserved</small>
+          </p>
+        </section>
+
+        <section>
+          <h1>What is markup?</h1>
+          <ul>
+            <li class="fragment">HTML</li>
+            <li class="fragment">CSS</li>
+            <li class="fragment">XML</li>
+          </ul>
+          <aside class="notes">
+            <p>Who has done markup before?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>What is coding?</h1>
+          <ul>
+            <li class="fragment">PHP</li>
+            <li class="fragment">Python</li>
+            <li class="fragment">Perl</li>
+            <li class="fragment">Javascript</li>
+          </ul>
+          <aside class="notes">
+            <p>Has anyone done some coding before?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Document Encoding</h1>
+          <ul>
+            <li class="fragment">Easy access</li>
+            <li class="fragment">Interchange</li>
+            <li class="fragment">Mashups</li>
+            <li class="fragment">Analysis</li>
+          </ul>
+          <aside class="notes">
+            <p>
+              Easy access - create one document, and generate other versions from it: HTML, ePub, PDF<br>
+              Interchange - trade documents with other people who have other ideas for analysis, etc.<br>
+              Mashups - Combine data in different documents or databases. Find a location in a book, plot it on a map.<br>
+            </p>
+        </section>
+
+        <section>
+          <h1>Characters</h1>
+          <p>A character is a number.</p>
+          <ul class="fragment">
+            <li class="fragment">A = 65</li>
+            <li class="fragment">a = 97</li>
+          </ul>
+          <ul class="fragment">
+            <li class="fragment">A = 0b1000001</li>
+            <li class="fragment">a = 0b1100001</li>
+          </ul>
+          <p class="fragment">
+            But it depends on the encoding!
+          </p>
+          <aside class="notes">
+            It's easy to check if a letter is capitalised in binary, just check the sixth bit.
+          </aside>
+        </section>
+
+        <section>
+          <h1>ASCII</h1>
+          <ul>
+            <li class="fragment">Only seven bits: 127 characters</li>
+            <li class="fragment">Includes "control characters" like tab, bell, and backspace</li>
+            <li class="fragment">Latin alphabet and some punctuation</li>
+            <li class="fragment">Doesn't include accents.</li>
+          </ul>
+
+          <aside class="notes">
+            Started in 1960, based in part on telegraph codes.
+          </aside>
+        </section>
+
+        <section>
+          <h1>ISO Latin</h1>
+          <p>Adds one bit to every character, increases the character count by 128</p>
+          <p class="fragment">But what gets included?</p>
+          <p class="fragment"><em>Everything</em></p>
+          <aside class="notes">
+            <p>Create 15 "code pages" and every document must include information about
+              which code page it uses.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>ISO Latin 1</h1>
+          <p>Western Europe, North America</p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>ISO Latin 2</h1>
+          <p>Eastern Europe</p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>But wait, there's more!</h1>
+          <ul>
+            <li class="fragment">Windows Code Pages<br>
+              <span class="fragment">Microsoft specific</span><br>
+              <span class="fragment">Hundreds of them</span>
+            </li>
+            <li class="fragment">IBM Code Pages</li>
+            <li class="fragment">Mac Roman</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Code pages suck</h1>
+          <p>Character number 193 is</p>
+          <ul>
+            <li class="fragment">¡ in Mac Roman</li>
+            <li class="fragment">В in Windows 1251 (Cyrillic)</li>
+            <li class="fragment">Á in Windows 1254 (Turkish)</li>
+            <li class="fragment">Á in ISO Latin 1</li>
+            <li class="fragment">┴ in Code Page 869 (MS DOS Greek 2)</li>
+          </ul>
+        </section>
+
+        <section>
+        	<img data-src="engl432/picard-facepalm.jpg">
+        </section>
+
+        <section>
+          <h1>It gets better</h1>
+          <h2>Unicode saves the day</h2>
+          <ul>
+            <li class="fragment">Single, open, specification</li>
+            <li class="fragment">Separates code points and character encodings</li>
+            <li class="fragment">Space for 1,114,112 characters</li>
+            <li class="fragment">One code point === one character</li>
+            <li class="fragment">Three different ways to encode the character as a number</li>
+            <li class="fragment">One way to decode a character.</li>
+          </ul>
+          <aside class="notes">
+            Not talking about collation, utf-8/16/32, combiners, diacritics, double width, etc.
+          </aside>
+        </section>
+
+        <section>
+          <h1>Characters and Code Points</h1>
+          <ul>
+            <li class="fragment">A character is something in an alphabet</li>
+            <li class="fragment">A code point is a number identifying a letter in unicode</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Notation</h1>
+          <ul>
+            <li class="fragment">Unicode notation: U+00C1</li>
+            <li class="fragment">Decimal: 193</li>
+            <li class="fragment">Hex: 0xC1</li>
+            <li class="fragment">XML: <code>&xc1;</code> or just type it!</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Finding Code Points</h1>
+          <ul>
+            <li class="fragment"><a href="http://unicode.org/charts/">Unicode Code Charts</a></li>
+            <li class="fragment"><a href="http://unicodelookup.com/">Look up a character by number</a></li>
+            <li class="fragment"><a href="http://fileformat.info/info/unicode/char/search.htm">Find a character by name</a></li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Using Code Points</h1>
+          <ul>
+            <li class="fragment">Fonts for display</li>
+            <li class="fragment">Typing them</li>
+            <li class="fragment">Saving a document</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Fonts</h1>
+          <ul>
+            <li class="fragment"><a href="http://www.google.com/get/noto">Noto</a></li>
+            <li class="fragment"><a href="https://web.archive.org/web/20110108105420/http://code2000.net/">Code2000, Code2001, Code2002</a></li>
+            <li class="fragment"><a href="http://users.teilar.gr/~g1951d/">Symbola</a></li>
+            <li class="fragment"><a href="http://unicode.org/resources/fonts.html">And many more</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Typing Unicode Characters</h1>
+          <h2 contenteditable>x</h2>
+          <h2 class="fragment">  </h2>
+          <h2 class="fragment">Today is a good day to die.</h2>
+          <p class="fragment"><a href="http://www.fileformat.info/tip/microsoft/enter_unicode.htm">
+            Windows information</a></p>
+          <aside class="notes">
+            klingon: U+F8D* <br/>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Some Useful Code Points</h1>
+          <ul>
+            <li class="fragment">€ - 'EURO SIGN' (U+20AC)</li>
+            <li class="fragment">£ - 'POUND SIGN' (U+00A3)</li>
+            <li class="fragment">ſ - 'LATIN SMALL LETTER LONG S' (U+017F)</li>
+            <li class="fragment">ﬅ - 'LATIN SMALL LIGATURE LONG S T' (U+FB05)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Question</h1>
+          <p>Spot the difference:</p>
+          <ul>
+            <li class="fragment">Henry V</li>
+            <li class="fragment">Henry Ⅴ</li>
+          </ul>
+          <aside class="notes">
+            That's U+2164 in unicode.
+          </aside>
+        </section>
+
+        <section>
+          <h1>Question</h1>
+          <p>Spot the difference:</p>
+          <ul>
+            <li class="fragment">Henry VI</li>
+            <li class="fragment">Henry Ⅵ</li>
+          </ul>
+          <aside class="notes">
+            That's U+2165 in unicode.
+          </aside>
+        </section>
+
+        <section>
+          <h1>Question</h1>
+          <p>Can you encode the year in Unicode?</p>
+          <p>Here's <a href="http://unicode.org/charts/PDF/U2150.pdf">some help</a>.</p>
+          <p class="fragment">ⅯⅯⅩⅤ</p>
+          <p class="fragment">U+216F U+216F U+2169 U+2165</p>
+          <aside class="notes">
+            U+216F U+216F U+2169 U+2165
+          </aside>
+        </section>
+
+        <section>
+          <h1>Saving documents</h1>
+          <p>Unicode. Always with unicode.</p>
+          <ul>
+            <li class="fragment">UTF-8, UTF-16, UTF-32, little endian, big endian</li>
+            <li class="fragment">Just use UTF-8.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Unicode in HTML</h1>
+          <pre><code>
+            <meta charset="utf-8">
+          </code></pre>
+          <p class="fragment">But you don't have to - it's the default.</p>
+        </section>
+
+        <section>
+          <h1>Unicode in XML</h1>
+          <pre><code>
+            &lt;?xml version="1.0" encoding="utf-8"?>
+          </code></pre>
+          <p class="fragment">But you don't have to - it's the default.</p>
+        </section>
+
+        <section>
+          <h1>XML</h1>
+        </section>
+
+        <section>
+        	<img data-src="engl432/oak-tree.jpg" height="85%">
+            <p>Photo by <a href="https://www.flickr.com/photos/127497725@N02/">
+              Sian Monument on Flickr</a>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>XML</h1>
+          <ul>
+            <li class="fragment">Descriptive markup</li>
+            <li class="fragment">Unlimited Vocabulary</li>
+            <li class="fragment">Document types with limited vocabularies</li>
+            <li class="fragment">Data independent</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>XML Tags</h1>
+          <p>Tags have names, and come in three flavours</p>
+          <ul>
+            <li class="fragment">Start tag: <pre><code>&lt;tagname></code></pre></li>
+            <li class="fragment">End tag: <pre><code>&lt;/tagname></code></pre></li>
+            <li class="fragment">Empty tag: <pre><code>&lt;tagname/></code></pre></li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Tag Attributes</h1>
+        </section>
+
+          <section>
+            <pre><code>
+              Frankenstein; or,
+                the Modern Prometheus
+            </code></pre>
+          </section>
+
+          <section>
+            <pre><code>
+              <title>Frankenstein; or,
+                the Modern Prometheus</title>
+            </code></pre>
+          </section>
+
+          <section>
+            <pre><code>
+              <title>Frankenstein</title>; or,
+              <title>the Modern Prometheus</title>
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+              <title type="main">Frankenstein</title>; or,
+              <title type="sub">the Modern Prometheus</title>
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+              <title>
+                <part type="main">Frankenstein</part>; or,
+                <part type="sub">the Modern Prometheus</part>
+              </title>
+            </code></pre>
+          </section>
+
+        <section>
+          <h1>XML Structure</h1>
+          <ul>
+            <li class="fragment">Root</li>
+            <li class="fragment">Children</li>
+            <li class="fragment">Parents</li>
+            <li class="fragment">Content</li>
+            <li class="fragment">Nesting</li>
+            <li class="fragment">Element</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Nesting</h1>
+          <p>Tags must "nest" properly</p>
+            <p> Don't do this!
+              <pre><code>
+              Some text &lt;i>in italic
+              and <b>bold and&lt;/i> not italic</b>
+              </code></pre>
+            </p>
+            <p>Do this instead
+              <pre><code>
+              Some text <i>in italic and <b>bold
+                and</b></i><b> not italic</b>
+              </code></pre>
+            </p>
+        </section>
+
+
+        <section>
+          <h1>XML Example</h1>
+          <pre><code>
+            <poem>
+              <stanza n="1">
+                  I think that I shall never see&lt;linebreak />
+                  A poem lovely as a tree.
+              </stanza>
+              <stanza n="2">
+                A tree whose hungry mouth is prest&lt;linebreak />
+                Against the earth’s sweet flowing breast;
+              </stanza>
+              ...
+            </poem>
+          </code></pre>
+          <p><small>Joyce Kilmer, Trees. <em>Poetry</em> August 1913.</small></p>
+          <aside class="notes">
+            Unconstrained XML - I made up some elements and used them. That's legal.
+          </aside>
+        </section>
+
+        <section>
+          <h1>Poem &amp; Stanza</h1>
+          <ul>
+            <li class="fragment">I invented them</li>
+            <li class="fragment">And linebreak</li>
+            <li class="fragment">That's allowed!</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Yes. Everyone can (and does) invent their own XML vocabulary for their
+            own purpose.</p>
+          <p>Yes. It's a big mess.</p>
+        </section>
+
+        <section>
+        	<img data-src="engl432/riker-facepalm.gif">
+        </section>
+
+        <section>
+          <h1>Deeper Introduction</h1>
+          <p>
+            "A Gentle Introduction to XML" published by the TEI<br>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html">
+              http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html</a>
+          </p>
+        </section>
+
+        <section>
+          <h1>TEI Guidelines</h1>
+          <ul>
+            <li class="fragment">Constrained vocabulary</li>
+            <li class="fragment">Well defined meanings</li>
+            <li class="fragment">Specific structure</li>
+            <li class="fragment">Very customizable</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>TEI Guidelines</h1>
+          <ul>
+            <li class="fragment">Full P5</li>
+            <li class="fragment">TEI Lite</li>
+            <li class="fragment">TEI Tite</li>
+            <li class="fragment">Drama</li>
+            <li class="fragment">Speech</li>
+          </ul>
+          <aside class="notes">
+            Tite is for outsourcing the production of texts, an intermediate format<br>
+            Lite is for simpler projects
+        </section>
+
+        <section>
+          <h1>TEI Structure</h1>
+          <p>We'll be using TEI Lite<br>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html">http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html</a>
+          </p>
+        </section>
+
+        <section>
+          <h1>Encoding or Editing</h1>
+          <ul>
+            <li class="fragment">Encoding a text cannot be neutral</li>
+            <li class="fragment">Exact copy, "diplomatic" copy, modern copy</li>
+            <li class="fragment">Audience, editor's point of view</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Starts and ends with TEI tags</p>
+          <pre><code>
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+              ...
+            </TEI>
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>Header and Body</h1>
+          <p>The TEI element has two children</p>
+          <pre><code>
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+              &lt;teiHeader>
+                ...
+              &lt;/teiHeader>
+              <text>
+                ...
+              </text>
+            </TEI>
+          </code></pre>
+          <p>We'll work on the text element for now.
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>The Text</h1>
+          <p>The text element has three children</p>
+          <pre><code>
+            <text>
+              <front>
+                Title page
+                Table of contents
+                Dedication
+              </front>
+              &lt;body>
+                The main content of the work
+                Chapters, scenes, etc.
+              &lt;/body>
+              <back>
+                Appendicies, Indexes
+              </back>
+            </text>
+          </code></pre>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Title pages</h1>
+          <p>Pen and paper markup exercise</p>
+          <p>Start with the titlepage element:<br>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html#titlePage">titlepage</a>
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Electronic Title Pages</h1>
+          <p>Describes how the XML version of the work sprang forth</p>
+          <ul>
+            <li class="fragment">Bibliograpic</li>
+            <li class="fragment">Production</li>
+            <li class="fragment">Provenance</li>
+            <li class="fragment">Revisions</li>
+            <li class="fragment">Contributors</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Transcribed Title Pages</h1>
+          <p>Keeps as much of the content of the original title page as possible</p>
+          <p>Doesn't need to reproduce it exactly</p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Title Page Exercise</h1>
+          <ol>
+            <li>Get the starter file<br>
+            <a href="http://www.sfu.ca/~mjoyce/engl434-starter.xml">http://www.sfu.ca/~mjoyce/engl434-starter.xml</a>
+            </li>
+            <li>Add your names and responsibilities in the respStmt element</li>
+            <li>Add your title page markup in the titlepage element</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Some examples</h1>
+          <ul>
+            <li><a href="misc/ww-lakes.xml">Wordsworth's Guide</a></li>
+            <li><a href="misc/wwa-log">Whitman's Leaves of Grass</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Granularity</h1>
+          <p>What structures should be tagged?</p>
+          <ul>
+            <li class="fragment">Major division: sections, chapters, paragraphs</li>
+            <li class="fragment">Smaller divisions: sentence, word, character</li>
+            <li class="fragment"><a href="misc/Ham.xml">Folger Shakespeare's Hamlet</a></li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h1>Meaning</h1>
+          <p>Should references be tagged?</p>
+          <ul>
+            <li class="fragment">Place names, person names</li>
+            <li class="fragment">Dates, times, props</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Images</h1>
+          <pre><code>
+            <figure>
+              <graphic url="engl432/Worf.jpg" />
+              <figDesc>Worf dessed up as a Merry Man</figDesc>
+            </figure>
+          </code></pre>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+        	<img data-src="engl432/Worf.jpg">
+          <p>
+            Worf is NOT a Merry Man.
+          </p>
+        </section>
+
+
+        <section>
+          <h1>Audio & Video</h1>
+          <p>Only in the full TEI P5 specification</p>
+          <pre><code>
+            <media mimeType="video/mp4" url="https://www.youtube.com/watch?v=SySZdvsFYt4">
+              <desc>Poetry reading</desc>
+              </media>
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>Linking</h1>
+          <pre><code>
+            <p>And on that note, I
+              bid you <ref target="">adieu</ref>.
+            </p>
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>TEI Customizations</h1>
+          <ul>
+            <li class="fragment">Comicbook XML</li>
+            <li class="fragment"><a href="https://golem.ph.utexas.edu/~distler/blog/archives/001505.html#e1505:F4G2">MathML</a></li>
+            <li class="fragment"><a href="https://www.soundslice.com/scores/scott-joplin-the-cascades/">Music XML</a></li>
+
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <p><a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a></p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <dl>
+            <dt>Unicode Code Charts</dt>
+            <dd><a href='http://unicode.org/charts/'>http://unicode.org/charts/</a>
+            </dd>
+            <dt>Look up a character by number</dt>
+            <dd><a href='http://unicodelookup.com/'>http://unicodelookup.com/</a></dd>
+            <dt>Find a character by name</dt>
+            <dd>
+            <a href='http://fileformat.info/info/unicode/char/search.htm'>
+            http://fileformat.info/info/unicode/char/search.htm
+            </a>
+            </dd>
+            <dt>Noto</dt>
+            <dd><a href='http://www.google.com/get/noto'>http://www.google.com/get/noto</a></dd>
+            <dt>Code2000, Code2001, Code2002</dt>
+            <dd><a href='https://web.archive.org/web/20110108105420/http://code2000.net/'>
+            https://web.archive.org/web/20110108105420/http://code2000.net/
+            </a></dd>
+            <dt>Symbola</dt>
+            <dd><a href='http://users.teilar.gr/~g1951d/'>http://users.teilar.gr/~g1951d/</a></dd>
+          </dl>
+        </section>
+        <section>
+          <dl>
+            <dt>And many more</dt>
+            <dd><a href='http://unicode.org/resources/fonts.html'>http://unicode.org/resources/fonts.html
+            </a></dd>
+            <dt>Windows information</dt>
+            <dd><a href='http://www.fileformat.info/tip/microsoft/enter_unicode.htm'>
+            http://www.fileformat.info/tip/microsoft/enter_unicode.htm
+            </a></dd>
+            <dt>some help</dt>
+            <dd><a href='http://unicode.org/charts/PDF/U2150.pdf'>http://unicode.org/charts/PDF/U2150.pdf
+            </a></dd>
+            <dt>Sian Monument on Flickr</dt>
+            <dd><a href='https://www.flickr.com/photos/127497725@N02/'>https://www.flickr.com/photos/127497725@N02/
+            </a></dd>
+            <dt>TEI Lite</dt>
+            <dd><a href='http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html'>http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html
+            </a></dd>
+            <dt>TEI Lite titlepage element</dt>
+            <dd><a href='http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html#titlePage'>http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html#titlePage
+            </a></dd>
+          </dl>
+        </section>
+        <section>
+          <dl>
+            <dt>Starter XML file</dt>
+            <dd><a href='http://www.sfu.ca/~mjoyce/engl434-starter.xml'>http://www.sfu.ca/~mjoyce/engl434-starter.xml
+            </a></dd>
+            <dt>MathML</dt>
+            <dd><a href='https://golem.ph.utexas.edu/~distler/blog/archives/001505.html#e1505:F4G2'>https://golem.ph.utexas.edu/~distler/blog/archives/001505.html#e1505:F4G2
+            </a></dd>
+            <dt>Music XML</dt>
+            <dd><a href='https://www.soundslice.com/scores/scott-joplin-the-cascades/'>https://www.soundslice.com/scores/scott-joplin-the-cascades/
+            </a></dd>
+          </dl>
+        </section>
+
+        <!-- <section> -->
+        <!--   <h1></h1> -->
+        <!--   <ul> -->
+        <!--     <li class="fragment"></li> -->
+        <!--   </ul> -->
+        <!--   <aside class="notes"> -->
+        <!--   </aside> -->
+        <!-- </section> -->
+      </div>
+
+    </div>
+
+    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+
+  </body>
+</html>

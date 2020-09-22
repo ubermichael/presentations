@@ -1,0 +1,294 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Spreadsheets are the worst</title>
+
+    <meta content="How not to use spreadsheets." name="description" />
+    <meta content="Michael Joyce" name="author" />
+
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
+
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport" />
+
+    <link href="css/reveal.css" rel="stylesheet" />
+    <link href="css/theme/black.css" id="theme" rel="stylesheet" />
+
+    <!-- Code syntax highlighting -->
+    <link href="lib/css/zenburn.css" rel="stylesheet" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css">
+      table{
+          color:lightgrey;
+      }
+      td {
+      border: 1px solid white !important;
+      vertical-align: top !important;
+      }
+
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        
+        <section>
+          <h1>Spreadsheets &amp; You</h1>
+          <p style="text-align: left !important">Michael Joyce <br />
+            Web and Data Services Developer, Bennett Library<br/>
+            Digital Humanities Developer, DHIL<br/>
+            Simon Fraser University<br/>
+            mjoyce@sfu.ca
+          </p>
+        </section>
+
+        <section>
+          <h1>Disclaimer</h1>
+          <h1>Spreadsheets: Yuck.</h1>
+        </section>
+
+        <section>
+          <h1>Potential Pain Points</h1>
+          <ul>
+            <li>Data integrity</li>
+            <li>Formatting</li>
+            <li>Dates</li>
+            <li>Sorting</li>
+            <li>Localization</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Spreadsheets: YAY!</h1>
+          <p>Spreadsheets are good for some things.</p>
+          <ul>
+            <li>Arithmetic</li>
+            <li>Tables</li>
+            <li>Making people sad.</li>
+          </ul>
+        </section>
+
+        
+        <section>
+          <h1>Plan Ahead</h1>
+          <ul>
+            <li>Determine why you are using spreadsheets.</li>
+            <li>Design them carefully.</li>
+            <li>Document them more carefully.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Sharing the responsibility</h1>
+          <ul>
+            <li>Google Drive, Drop Box, SFU Vault.</li>
+            <li>Backup before opening the spreadsheet.</li>
+            <li>Have a "talking stick."</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Getting Started</h1>
+          <ul>
+            <li>What will you be feeding into the spreadsheets?</li>
+            <li>What do you expect to get back from the spreadsheets?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Design</h1>
+          <ul>
+            <li>Name each column</li>
+            <li>Set the format for all date columns</li>
+            <li>Include the format in the column name<br/>
+              <em>Birth Date (dd-MMM-YYYY)</em></li>
+            <li>Use the Freeze Columns feature</li>
+            <li>Don't colour code rows</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Atoms</h1>
+          <ul>
+            <li>One cell === one atomic piece of information</li>
+            <li>A date</li>
+            <li>Full name?</li>
+            <li>Location?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Don't.</h1>
+          <table>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                <ul>
+                  <li>Hamlet</li>
+                  <li>Romeo and Ethel the Pirate's Daughter</li>
+                  <li>Macbeth</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h1>Can we not?</h1>
+          <table>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Hamlet; Romeo and Ethel the Pirate's Daughter; Macbeth
+              </td>
+            </tr>
+          </table>
+          <p>Q: Can anyone name a title with a semicolon in it?</p>
+        </section>
+                 
+        <section>
+          <h1>I can't even</h1>
+          <table>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Hamlet{@type=tragedy};
+                Romeo and Ethel the Pirate's Daughter{@type=adventure};
+                Macbeth{@type=tragedy};
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section data-background-image="spreadsheets/example.png">
+        </section>
+                 
+        <section>
+          <h1>Do do</h1>
+          <table>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Hamlet
+              </td>
+            </tr>
+            <tr>
+              <td>Shakespaere</td>
+              <td>
+                Romeo and Ethel the Pirate's Daughter
+              </td>
+            </tr>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Macbeth
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h1>Dates</h1>
+          <ul>
+            <li>Don't fight the spreadsheet.</li>
+            <li>Choose a format. Stick to it.</li>
+            <li>Use four-digit years.</li>
+            <li>Separate column for notes about the dates.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Clean your data</h1>
+          <p>Open Refine to find and fix errors</p>
+          <table>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Hamlet
+              </td>
+            </tr>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Romeo and Ethel the Pirate's Daughter
+              </td>
+            </tr>
+            <tr>
+              <td>Shakespeare</td>
+              <td>
+                Macbeth
+              </td>
+            </tr>
+          </table>
+          <p><a href="http://openrefine.org/">openrefine.org</a></p>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <p style="text-align: left !important">Michael Joyce <br />
+            Web and Data Services Developer, Bennett Library<br/>
+            Digital Humanities Developer, DHIL<br/>
+            Simon Fraser University<br/>
+            mjoyce@sfu.ca
+          </p>
+        </section>
+        
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'plugin/zoom-js/zoom.js', async: true },
+             { src: 'plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+  </body>
+</html>
+<!--
+     Local Variables:
+     mode: web
+     tab-width: 2
+     web-mode-markup-indent-offset: 2
+     End:
+   -->

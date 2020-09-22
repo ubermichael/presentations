@@ -1,0 +1,608 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>XML &amp; The TEI Guidelines</title>
+
+    <meta content="A quick introduction to XML and the TEI Guidelines" name="description" />
+    <meta content="Michael Joyce" name="author" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css" media="screen">
+      table{
+          color:lightgrey;
+      }
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Introduction to Data Modelling</h1>
+          <p> Michael Joyce <br /> Web and Data Services Developer<br /> Bennett Library, Simon
+            Fraser University </p>
+        </section>
+        <section>
+          <h1>Introduction</h1>
+          <ol>
+            <li>Data stores</li>
+            <li>Build a new model</li>
+            <li>Normalize an existing model</li>
+          </ol>
+        </section>
+        <section>
+          <h1>Data stores</h1>
+          <p>How is data stored in the model?</p>
+          <ul>
+            <li>Table stores</li>
+            <li>Document stores</li>
+            <li>Key value stores</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Building a new model</h1>
+          <ol>
+            <li>Entities</li>
+            <li>Relationships</li>
+            <li>Constraints</li>
+          </ol>
+        </section>
+        <section>
+          <h1>Our model</h1>
+          <p>A database of journal articles</p>
+          <ul>
+            <li>Who collaborated the most?</li>
+            <li>Who was cited the most?</li>
+            <li>Is there a connection between collaboration and citation?</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Entities</h1>
+          <p>What are the kinds of things involved?</p>
+          <ul>
+            <li>Journals</li>
+            <li>Articles</li>
+            <li>Authors</li>
+            <li>Issues</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Relationships</h1>
+          <ul>
+            <li>Articles appear in issues</li>
+            <li>Issues are part of a journal</li>
+            <li>Articles are written by authors</li>
+            <li>And many many more</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Articles</h1>
+          <p>An article is an example of an entity.</p>
+          <p>Entities have attributes or properties.</p>
+        </section>
+        <section>
+          <img data-src='modelling/article_01.png'/>
+        </section>
+        <section>
+          <table>
+            <tr>
+              <th><b>title</b></th>
+              <th><b>content</b></th>
+              <th><b>author</b></th>
+              <th><b>journal</b></th>
+              <th><b>publisher</b></th>
+            </tr>
+            <tr>
+              <td>Gravitational Radiation...</td>
+              <td>...</td>
+              <td>Hawking, S</td>
+              <td>Comms in Math Phys</td>
+              <td>APS</td>
+            </tr>
+            <tr>
+              <td>Black holes...</td>
+              <td>...</td>
+              <td>Hawking, S W</td>
+              <td>Comms in Math Phys</td>
+              <td>SpringerLink</td>
+            </tr>
+            <tr>
+              <td>Wave function...</td>
+              <td>...</td>
+              <td>Hartle, J., Hawking, S</td>
+              <td>Phys Rev D</td>
+              <td>APS</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h1>Problems already</h1>
+          <ul>
+            <li>Hawking, S and Hawking, S W</li>
+            <li>What about reprints?</li>
+            <li>What about name changes?</li>
+            <li>Multiple authors</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Entities</h1>
+          <p>Separate author and article tables.</p>
+        </section>
+        <section>
+            <img data-src='modelling/article_02.png'/>
+        </section>
+        <section>
+          <h1>Primary keys</h1>
+          <ul>
+            <li>author.id and article.id are <i>primary key</i>s.</li>
+            <li>They identify an entity (an author or article).</li>
+            <li>They are unique.</li>
+            <li>They can never be changed.</li>
+            <li>That's a lie. Just don't change them.</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Primary keys</h1>
+          <ul>
+            <li>Good primary keys are generated by the database.</li>
+            <li>Great primary keys have no meaning outside the database.</li>
+            <li>Bad primary keys: <ul>
+                <li>Phone numbers</li>
+                <li>Social Insurance Numbers</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>Foreign keys</h1>
+          <ul>
+            <li>article.author_id is a foreign key: it relates an article to an author.</li>
+            <li>An attribute in an entity that references another entity.</li>
+          </ul>
+        </section>
+        <section>
+          <img data-src='modelling/article_02.png'/>
+        </section>
+        <section>
+          <h1>Authors</h1>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>title</th>
+              <th>institution</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Hawking, S</td>
+              <td>Professor</td>
+              <td>Cambridge</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Hartle, J</td>
+              <td>Professor</td>
+              <td>UCSB</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h1>Articles</h1>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>author_id</th>
+              <th>title</th>
+              <th>content</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>Gravitational Radiation...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1, 2</td>
+              <td>Wave function...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>1</td>
+              <td>Black holes...</td>
+              <td>...</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <section>
+            <h1>Good</h1>
+            <ul>
+              <li>No duplication</li>
+              <li>Changing names is easy</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Bad</h1>
+            <ul>
+              <li>Doesn't handle multiple authors well.</li>
+              <li>Author names are in a different place.</li>              
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h1>Relationships</h1>
+          <ul>
+            <li>The foreign key authors to articles is a <i>one-to-many</i> relationship.</li>
+            <li>One author is related to many articles.</li>
+            <li>We need a many to many relationship</li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src='modelling/article_02.png'/>
+        </section>
+        
+        <section>
+          <h1>Relations</h1>
+          <ul>
+            <li>ArticleAuthors isn't an entity</li>
+            <li>ArticleAuthors represents the relationship between articles and authors.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Authors</h1>
+          <p>No changes here.</p>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>title</th>
+              <th>institution</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Hawking, S</td>
+              <td>Professor</td>
+              <td>Cambridge</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Hartle, J</td>
+              <td>Professor</td>
+              <td>UCSB</td>
+            </tr>
+          </table>
+        </section>
+        
+        <section>
+          <h1>Articles</h1>
+          <p>Remove the author_id attribute</p>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>content</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Gravitational Radiation...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Wave function...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Black holes...</td>
+              <td>...</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h1>ArticleAuthors</h1>
+          <p>New!</p>
+          <table>
+            <tr>
+              <th>article_id</th>
+              <th>author_id</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>              
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1</td>              
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>              
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>1</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <section>
+            <h1>Good</h1>
+            <ul>
+              <li>No duplication</li>
+              <li>Changing names is easy</li>
+              <li>Adding and removing entities is easy</li>
+              <li>No lists inside table cells</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Bad</h1>
+            <ul>
+              <li>Difficult to read</li>
+              <li>Are there articles without authors?</li>              
+              <li>Are there authors without articles?</li>              
+            </ul>
+          </section>
+          <section>
+            <h1>Ugly</h1>
+            <ul>
+              <li>Data errors are still possible.</li>
+              <li>Could an article have the same author listed twice?</li>
+              <li>Can we have ArticleAuthors rows that don't refer to valid articles or authors?</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <h1>Constraints</h1>
+          <ul>
+            <li>article_id must refer to a valid article.<span class='fragment'><br/>Foreign keys enforce constraints like this.</span></li>
+            <li>The article_id, author_id combinations must be unique.<span class='fragment'><br/>Constraints like this must be specified explicitly.</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src='modelling/article_04.png'/>
+          <p>This is looking pretty good so far.</p>
+          <p class='fragment'>But what about primary authors?</p>
+        </section>
+        
+        <section>
+          <img data-src='modelling/article_05.png'/>
+          <p>Relations can have attributes.</p>
+          <p class='fragment'>But how do we guarantee that there's only one primary author?</p>
+        </section>
+        
+        <section>
+          <img data-src='modelling/article_06.png'/>
+          <p>A new constraint.</p>
+          <p class='fragment'>Most database cannot enforce this constraint.</p>
+          <p class='fragment'>Not difficult do enforce in application code.</p>
+          <p class='fragment'>What about illustrators, editors, or other contributors?</p>
+        </section>
+        
+        <section>
+          <h1>Illustrators &amp; editors</h1>
+          <p>First try</p>
+          <ul>
+            <li class='fragment'>Create an Illustrator entity</li>
+            <li class='fragment'>Create an ArticleIllustrator relation</li>
+            <li class='fragment'>Create an Editor entity</li>
+            <li class='fragment'>Create an ArticleEditor relation</li>
+            <li class='fragment'>Research contributions?</li>
+            <li class='fragment'>This way lies madness...</li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src='modelling/article_07.png'/>
+        </section>
+
+        <section>
+          <h1>Yuck.</h1>          
+          <ul>
+            <li>Duplicates personal information in three entities</li>
+            <li>Lots of structural similarity</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Abstraction saves the day</h3>          
+          <ul>
+            <li>Authors, illustrators, and editors are all "contributors."</li>
+            <li>But they have different types of contributions.</li>
+            <li class='fragment'>Use a Contributor entity and ArticleContributors relation.</li>
+            <li class='fragment'>And a ContributorType entity to distinguish contributions.</li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src='modelling/article_08.png'/>
+        </section>
+        
+        <section>
+          <h1>Article</h1>
+          <p>Nothing changed here</p>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>content</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Gravitational Radiation...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Wave function...</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Black holes...</td>
+              <td>...</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h1>Contributor</h1>
+          <p>New!</p>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>title</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Hawking, S</td> 
+              <td>Professor</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Hartle, J</td>              
+              <td>Professor</td>
+            </tr>
+          </table>
+        </section>
+        
+        <section>
+          <h1>ContributorType</h1>
+          <p>New!</p>
+          <table>
+            <tr><th>id</th><th>type</th><th>description</th></tr>
+            <tr><td>1</td><td>Primary Author</td><td>...</td></tr>
+            <tr><td>2</td><td>Author</td><td>...</td></tr>
+            <tr><td>3</td><td>Illustrator</td><td>...</td></tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>ArticleContributors</h3>
+          <p>Improved!</p>
+          <table>
+            <tr>
+              <th>article_id</th>
+              <th>contributor_id</th>
+              <th>contributor_type_id</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>              
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>              
+              <td>2</td>              
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>              
+              <td>3</td>              
+            </tr>
+          </table>
+          <ul>
+            <li>Hawking, S (contributor 1) is the primary author (contributor type 1)</li>
+            <li>Hartle, J (contributor 2) is an author (contributor type 2) and illustrator (contributor type 3).</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h1>Relations, revisited</h1>
+          <ul>
+            <li>Relations describe how two (or more) entities are related</li>
+            <li>Relations can have attributes</li>
+            <li>Relations remove duplicate data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Next steps</h1>
+          <ul>
+            <li>Disect the Journal attribute</li>
+            <li>Disect the publisher attribute</li>
+          </ul>
+        </section>
+        
+        <section>
+          <img data-src='modelling/article_09.png'/>
+        </section>
+        
+        <section>
+          <h1>Questions?</h1>
+          <p><a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a></p>
+          <aside class="notes"> </aside>
+        </section>
+      </div>
+    </div>
+    
+    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+
+  </body>
+</html>

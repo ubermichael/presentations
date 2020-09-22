@@ -1,0 +1,151 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>XML &amp; The TEI Guidelines</title>
+
+    <meta content="A quick introduction to XML and the TEI Guidelines" name="description" />
+    <meta content="Michael Joyce" name="author" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css" media="screen">
+      table{
+          color:lightgrey;
+      }
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        
+        <section>
+          <h1>Database Programs &amp; Design</h1>
+          <p> Michael Joyce <br /> Web and Data Services Developer<br /> Bennett Library, Simon
+            Fraser University </p>
+        </section>
+
+        <section>
+          <h1>Spreadsheets</h1>
+        </section>
+
+        <section>
+          <img data-src='lightning/funny-cats-if-it-fits-i-sits-5.jpg'/>
+        </section>
+        
+
+        <section>
+          <h1>Table Data</h1>
+          <h2>Relational Databases</h2>
+          <ul class='fragment'>
+            <li>Census data</li>
+            <li>Financial transactions</li>
+            <li>Event registrations</li>
+          </ul>
+          <ul class='fragment'>
+            <li>SQLite</li>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </section>
+        
+        <section>
+          <img data-src='lightning/puppies.jpg'/>
+        </section>
+
+        <section>
+          <h1>Documents</h1>
+          <ul class='fragment'>
+            <li>HTML (Project Gutenberg)</li>
+            <li>XML (TEI collection)</li>
+            <li>Images</li>
+          </ul>
+          <ul class='fragment'>
+            <li>eXist</li>
+            <li>MarkLogic</li>
+            <li>Metadata</li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src='lightning/baby-animals.jpg'/>
+        </section>
+        
+        <section>
+          <ul>
+            <li class='fragment'>Know your data.</li>
+            <li class='fragment'>Understand what you want <i>from</i> your data.</li>
+            <li class='fragment'>Choose the right tools.</li>
+          </ul>
+        </section>
+
+        <section data-background='lightning/dog3.jpg'>
+          <h1 class='fragment'>Spreadsheets<br/>
+            Just say no.</h1>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <p><a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a></p>
+        </section>
+      </div>
+    </div>
+    
+    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+
+  </body>
+</html>

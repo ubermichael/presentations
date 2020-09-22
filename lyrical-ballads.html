@@ -1,0 +1,219 @@
+<!-- -*- web -*- -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+
+        <title>Lyrical Ballads</title>
+
+        <meta name="description" content="Publishing the Lyrical Ballads in Islandora"/>
+        <meta name="author" content="Michael Joyce"/>
+        
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+        <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
+        <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
+
+        <!-- Printing and PDF exports -->
+        <script>
+         var link = document.createElement( 'link' );
+         link.rel = 'stylesheet';
+         link.type = 'text/css';
+         link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
+         document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <style type="text/css" media="screen">
+         table{
+             color:lightgrey;
+         }
+        </style>
+
+        <!--
+             [if lt IE 9]>
+             <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
+             <![endif]
+           -->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section>
+                    <h1>XML Publishing in Islandora</h1>
+                    <p>Michael Joyce<br/>
+                        Bennett Library, <br/>
+                        Simon Fraser University</p>
+                </section>
+
+                <section>
+                    <h1>Lyrical Ballads</h1>
+                    <ul>
+                        <li class="fragment">TEI XML</li>
+                        <li class="fragment">Very constrained XML</li>
+                        <li class="fragment">Facsimilies</li>
+                        <li class="fragment">Islandora XML Solution Pack</li>
+                        <li class="fragment">Custom Viewer</li>
+                    </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>Quick Demo</h1>
+                    <p style="font-size:200%">
+                        <a href="http://digital.lib.sfu.ca/lyrical-ballads-39/home-page" target="_blank">http://at.sfu.ca/RtzPsH</a><br/>
+                    </p>
+                        <ul>
+                            <li>a collection of XML objects</li>
+                            <li>XML data stream</li>
+                            <li>facsimile data streams</li>
+                            <li class='fragment'>RENDER_STYLESHEET</li>
+                        </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>Data Model</h1>
+                    <ul>
+                        <li>One Islandora object per XML file</li>
+                        <li class="fragment">Many data streams for each object:
+                            <ol>
+                                <li class="fragment">OBJ: XML content as data stream</li>
+                                <li class="fragment">TN: thumbnail data stream</li>
+                                <li class="fragment">MODS: Metadata goodness</li>
+                                <li class="fragment">FACS: one data stream for each facsimile</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Data Streams</h1>
+                    <p>
+                    <a target="_blank" href="http://digital.lib.sfu.ca/islandora/object/lyrical-ballads:45#overlay=islandora/object/lyrical-ballads%253A45/manage/datastreams">
+                    	Islandora Backend
+                    </a>
+                    </p>
+                </section>
+
+                <section>
+                    <h1>Preprocessing</h1>
+                    <ul>
+                        <li class="fragment">Metadata extracted with XSLT</li>
+                        <li class="fragment">Facsimiles Resized/Renamed</li>
+                        <li class="fragment">Thumbnails</li>
+                    </ul>
+                    <aside class="notes">
+                        <ul>
+                            <li>XSLT for TEI to MODS, saved as a data stream</li>
+                            <li>Facsimiles saved as datastream</li>
+                        </ul>
+                    </aside>
+                </section>                
+
+                <section>
+                    <h1>Display</h1>
+                    <ul>
+                        <li class="fragment">Lyrical Ballads Viewer</li>
+                        <li class="fragment">XML Transformation</li>
+                        <li class="fragment">Theming</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Display</h1>
+                    <h2>XSLT</h2>
+                    <ul>
+                        <li class="fragment">Transform TEI tags to HTML tags</li>
+                        <li class="fragment">Limitations in PHP</li>
+                        <li class="fragment">Post Processing</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Display</h1>
+                    <h2>Post Processing</h2>
+                    <ul>
+                        <li class="fragment">@rend attributes to CSS</li>
+                        <li class="fragment">Facsimile URLs</li>
+                        <li class="fragment">Linking</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>The Future</h1>
+                    <ul>
+                        <li class="fragment">Support for more TEI tags</li>
+                        <li class="fragment">Generate derivatives</li>
+                        <li class="fragment">Saxon</li>
+                        <li class="fragment">Output in other formats (PDF, plain text, ebook)</li>
+                    </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>The Future</h1>
+                    <ul>
+                        <li class="fragment">More student work</li>
+                        <li class="fragment">Dedicated islandora instance</li>
+                        <li class="fragment">Editoral board</li>
+                        <li class="fragment">It's a lovely dream</li>
+                    </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                
+                <section>
+                    <h1>Questions?</h1>
+                    <p>Michael Joyce<br/>
+                        Bennett Library, <br/>
+                        Simon Fraser University<br/>
+                        mjoyce@sfu.ca               
+                    </p>
+                </section>
+            </div>
+        </div>
+
+        <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
+        <script src="bower/assets/reveal.js/js/reveal.js"></script>
+
+        <script>
+
+         // Full list of configuration options available at:
+         // https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+             controls: true,
+             progress: true,
+             history: true,
+             center: true,
+             slideNumber: 'h.v',
+
+             transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+             // Optional reveal.js plugins
+             dependencies: [
+                 { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                 { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                 { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                 { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                 { src: 'plugin/zoom-js/zoom.js', async: true },
+                 { src: 'plugin/notes/notes.js', async: true }
+             ]
+         });
+
+        </script>
+
+    </body>
+</html>

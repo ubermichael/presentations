@@ -1,0 +1,122 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>Engl 832 - TEI XML</title>
+
+    <meta name="description" content="A quick introduction to XML and the TEI Guidelines"/>
+    <meta name="author" content="Rebecca Dowson"/>
+    <meta name="author" content="Michael Joyce"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css" media="screen">
+      table{
+          color:lightgrey;
+      }
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <h1>Presentations</h1>
+          <p>Michael Joyce<br/>
+            Bennett Library, Simon Fraser University</p>
+        </section>
+
+        <section>
+           <h1>2017</h1>
+           <ul>            
+            <li><a href="workshop.html">Workshop: Encoding Manuscripts in TEI &amp; XML</a> Jan 27 2017</li>
+            <li><a href="lyrical-ballads.html">DPN Symposium: Lyrical Ballads</a> May 5 2017</li>
+            <li><a href="beta-testing.html">DPN Symposium: Beta Testing</a> May 5 2017</li>
+          </ul>
+        </section>
+        
+        <section>
+        	<h1>2016</h1>
+        	<ul>    
+            <li><a href="lightning.html">Cultural Data: Lightning Talk</a> Feb 18 2016</li>
+            <li><a href="modelling.html">Cultural Data: Data Modelling</a> Feb 18 2016</li>            
+            <li><a href="engl832.html">ENGL 832: XML &amp; TEI</a> Feb 22 2016</li>            
+            <li><a href="islandora.html">Islandora Camp: Viewers Demo</a> July 20 2016</li>
+            <li><a href="spreadsheets.html">Tableau Workshop: Spreadsheets are Gross</a> Oct 26 2016</li>
+            <li><a href="tableau.html">Cultural Data: Data Modelling</a> Oct 26 2016</li>
+            <li><a href="code4lib-2016.html">Code4Lib: Publishing with Islandora</a> Dec 2 2016</li>
+           </ul>
+           </section>
+           
+        <section>
+          <h1>2015</h1>
+          <ul>
+            <li><a href="engl432-a.html">ENGL 432: XML &amp; TEI</a> Oct 14 2015</li>
+            <li><a href="engl432-b.html">ENGL 432: XML &amp; TEI</a> Oct 21 2015</li>
+            <li><a href="code4lib.html">Code4Lib: XML Databases</a> Nov 27 2015</li>
+          </ul>
+        </section>        
+        
+      </div>
+    </div>
+
+    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+
+  </body>
+</html>

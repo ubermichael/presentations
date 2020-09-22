@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>This Be The Verse</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Transcribed by Michael Joyce</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Collected Poems by Philip Larkin</p>
+      </sourceDesc>      
+    </fileDesc>
+    <encodingDesc>
+      <metDecl pattern="((1|0)+\|?/?)*">
+        <metSym value="l">metrical prominence</metSym>
+        <metSym value="s">metrical non-prominence</metSym>
+        <metSym value="|">foot boundary</metSym>
+        <metSym value="/">metrical line boundary</metSym>
+      </metDecl>
+    </encodingDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <lg>
+        <head> <title>This Be The Verse</title> </head>
+        <lg met="sl|sl|sl|sl/" rhyme="abab">
+          <l>They fuck you up, your mum and <rhyme label="a">dad</rhyme><note place="bottom" anchored="true">Sydney Larkin (1884–1948) and Eva Emily Day (1886–1977)</note>.</l>
+          <l>They may not mean to, but they <rhyme label="b">do</rhyme>.</l>
+          <l>They fill you with the faults they <rhyme label="a">had</rhyme></l>
+          <l>And add some extra, just for <rhyme label="b">you</rhyme><note place="bottom" anchored="true"> Lisa Jardine called him a "casual, habitual racist, and an easy misogynist".</note>.</l>
+        </lg>
+        <lg met="sl|sl|sl|sl/" rhyme="abab">
+          <l>But they were fucked up in their <rhyme label="a">turn</rhyme></l>
+          <l>By fools in old-style hats and <rhyme label="b">coats</rhyme>,</l>
+          <l>Who half the time were soppy-<rhyme label="a">stern</rhyme></l>
+          <l>And half at one another’s <rhyme label="b">throats</rhyme>.</l>
+        </lg>
+        <lg met="sl|sl|sl|sl/" rhyme="abab">
+          <l>Man hands on misery to <rhyme label="a">man</rhyme>.</l>
+          <l>It deepens like a coastal <rhyme label="b">shelf</rhyme>.</l>
+          <l>Get out as early as you <rhyme label="a">can</rhyme>,</l>
+          <l>And don’t have any kids <rhyme label="b">yourself</rhyme><note place="bottom" anchored="false">Larkin never married and never had children of his own.</note>.</l>
+        </lg>
+        <closer><date>April ? 1971</date> HW</closer>
+      </lg>
+    </body>
+  </text>
+</TEI>

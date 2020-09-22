@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>To A Butterfly</title>
+            <author>Wordsworth, W</author>
+            <respStmt>
+               <name xml:id="BL-RD">Rebecca Dowson</name>
+               <resp>transcribed by</resp>
+            </respStmt>
+            <respStmt>
+               <name xml:id="BL-MJ">Michael Joyce</name>
+               <resp>transcribed by</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <p>Selected poems from The Chandos Classics, The Poetical Works of Wordsworth</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Poems transcribed from a PDF of The Chandos Classics, The Poetical Works of
+               Wordsworth found at https://archive.org/details/worksofw00wordpoeticalrich</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <p>Spaces before punctuation were normalized. Selected instances of the normalization
+               were noted in the back matter.</p>
+         </editorialDecl>
+         <samplingDecl>
+            <p>Two poems of the same name were selected as examples for markup.</p>
+         </samplingDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <p>To a Butterfly is a lyric poem written by William Wordsworth at Town End, Grasmere, in
+            1802. It was first published in the collection <title>Poems in Two Volumes</title> in
+            1807. This poem is transcribed from page 20 of the later <title>Poetical Works of
+               Wordsworth</title>.</p>
+
+         <p>Wordsworth wrote two poems addressing a butterfly, of which this is the first and best
+            known. In the poem, he recalls how he and his sister Dorothy would chase butterflies as
+            children when they were living together in Cockermouth, before they were separated
+            following their mother's death in 1778 when he was barely eight years old.</p>
+
+         <lg type="poem" facs="to-a-butterfly-1.png">
+            <head><title rend="uppercase">To A Butterfly.</title></head>
+            <lg type="stanza">
+               <l>Stay near me—do not take thy flight!</l>
+               <l>A little longer stay in sight!</l>
+               <l>Much converse do I find in thee,</l>
+               <l>Historian of my infancy!</l>
+               <l>Float near me; do not yet depart!</l>
+               <l>Dead times revive in thee:</l>
+               <l>Thou bring'st, gay creature as thou art!</l>
+               <l>A <w ana="#tab1-solemn-iterp">solemn</w> image to my heart,</l>
+               <l>My father's family!</l>
+            </lg>
+            <lg type="stanza">
+               <l>Oh! pleasant, pleasant were the days,</l>
+               <l>The time, when, in our childish plays,</l>
+               <l>My sister Emmeline<note>Dorothy Wordsworth</note> and I</l>
+               <l>Together chased the butterfly!</l>
+               <l>A very hunter did I rush</l>
+               <l>Upon the prey:—with leaps and springs</l>
+               <l>I followed on from brake to bush;</l>
+               <l>But she, God love her! feared to brush</l>
+               <l>The dust from off its wings.</l>
+            </lg>
+         </lg>
+
+         <p>If I found some text to blatanly and shamelessly plagarize from Wikipedia, I would have
+            added it here.</p>
+         <lg type="poem" facs="to-a-butterfly-2.png">
+            <head><title rend="uppercase">To A Butterfly.</title></head>
+            <lg type="stanza">
+               <l><w rend="uppercase">I've</w> watched you now a full half-hour,</l>
+               <l>Self-poised upon that yellow flower;</l>
+               <l>And, little butterfly<pc ana="#tab2-excl-iterp">!</pc> indeed</l>
+               <l>I know not if you sleep or feed.</l>
+               <l>How motionless!—not frozen seas</l>
+               <l>More motionless<pc ana="#tab2-excl-iterp">!</pc> and then</l>
+               <l>What joy awaits you, when the breeze</l>
+               <l>Hath found you out among the trees,</l>
+               <l>And calls you forth again!</l>
+            </lg>
+            <lg type="stanza">
+               <l>This plot of orchard-ground is ours;</l>
+               <l>My trees they are, my sister's flowers;</l>
+               <l>Here rest your wings with they are weary;</l>
+               <l>Here lodge as in a sanctuary!</l>
+               <l>Come often to us, fear no wrong;</l>
+               <l>Sit near us, on the bough!</l>
+               <l>We'll talk of sunshine and of song;</l>
+               <l>And summer days when we were young;</l>
+               <l>Sweet childish days, that were as long</l>
+               <l>As twenty days are now.</l>
+            </lg>
+         </lg>
+      </body>
+      <back>
+         <div type="Interpretations">
+            <list>
+               <item>
+                  <interp xml:id="tab1-solemn-iterp" resp="#BL-MSJ" type="typographic">
+                     <desc>The printed book is ambiguous: the word could be solemn or solemr.</desc>
+                  </interp>
+               </item>
+               <item>
+                  <interp xml:id="tab2-excl-iterp" resp="#BL-MSJ" type="typographic">
+                     <desc>The printed book contains a space before the exclamation mark, possibly
+                        indicating a caesura.</desc>
+                  </interp>
+               </item>
+            </list>
+         </div>
+      </back>
+   </text>
+</TEI>

@@ -1,0 +1,447 @@
+<!-- -*- web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>Publishing in Islandora</title>
+
+    <meta name="description" content="A quick introduction to XML and the TEI Guidelines"/>
+    <meta name="author" content="Rebecca Dowson"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+
+    <link rel="stylesheet" href="css/reveal.css"/>
+    <link rel="stylesheet" href="css/theme/black.css" id="theme"/>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style type="text/css" media="screen">
+      table{
+          color:lightgrey;
+      }
+    </style>
+
+    <!--
+         [if lt IE 9]>
+         <script src="lib/js/html5shiv.js"></script>
+         <![endif]
+       -->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+            <h1>XML Publishing in Islandora</h1>
+            <h2>Making Islandora do things it isn't meant to do</h2>
+          <p>Michael Joyce<br/>
+              Bennett Library, <br/>
+              Simon Fraser University</p>
+        </section>
+
+        <section>
+            <h1>TEI XML</h1>
+            <h2>&amp;</h2>
+            <h1>OHMS XML</h1>
+        </section>
+
+        <section>
+            <img src="code4lib-2016/rime.jpg" />
+        </section>
+
+        <section>
+            <h1>Lyrical Ballads</h1>
+            <ul>
+                <li class="fragment">TEI XML</li>
+                <li class="fragment">Very constrained XML</li>
+                <li class="fragment">Facsimilies</li>
+                <li class="fragment">Islandora XML Solution Pack</li>
+                <li class="fragment">Custom Viewer</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h1>Quick Demo</h1>
+            <ul>
+                <li class="fragment">
+                    <a href="http://digital.lib.sfu.ca/" target="_blank">digital.lib.sfu.ca</a>
+                </li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>a collection of XML objects</li>
+                    <li>XML data stream</li>
+                    <li>facsimile data stream</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Production</h1>
+            <ul>
+                <li class="fragment">XML Files</li>
+                <li class="fragment">Page Scans</li>
+                <li class="fragment">Metadata</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Preprocessing</h1>
+            <ul>
+                <li class="fragment">Metadata extracted with XSLT</li>
+                <li class="fragment">Facsimiles Resized/Renamed</li>
+                <li class="fragment">Thumbnails</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>XSLT for TEI to MODS, saved as a data stream</li>
+                    <li>Facsimiles saved as datastream</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li class="fragment">Create a collection</li>
+                <li class="fragment">Add a RENDER_STYLESHEET data stream</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>Islandora XML Solution Pack Batch Ingest!</li>
+                <li class="fragment">
+                    drush --user=admin islandora_simple_xml_batch_preprocess <br/>
+                    --target=/home/vagrant/ballads <br/>
+                    --namespace=ballads <br/>
+                    --parent=islandora:lyrical-ballads
+                </li>
+                <li class="fragment">
+                    drush --user=admin islandora_batch_ingest
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>One Islandora object per XML file</li>
+                <li class="fragment">Many data streams for each object:
+                    <ol>
+                        <li class="fragment">OBJ: XML content as data stream</li>
+                        <li class="fragment">TN: thumbnail data stream</li>
+                        <li class="fragment">MODS: Metadata goodness</li>
+                        <li class="fragment">FACS: one data stream for each facsimile</li>
+                    </ol>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Example</h1>
+            <p>
+                <a href="http://digital.lib.sfu.ca/islandora/object/lyrical-ballads:45" target="_blank">Example</a>
+            </p>
+        </section>
+
+        <section>
+            <h1>Display</h1>
+            <ul>
+                <li class="fragment">Lyrical Ballads Viewer</li>
+                <li class="fragment">XML Transformation</li>
+                <li class="fragment">Theming</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Display</h1>
+            <h2>XSLT</h2>
+            <ul>
+                <li class="fragment">Transform TEI tags to HTML tags</li>
+                <li class="fragment">Limitations in PHP</li>
+                <li class="fragment">Post Processing</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Display</h1>
+            <h2>Post Processing</h2>
+            <ul>
+                <li class="fragment">@rend attributes to CSS</li>
+                <li class="fragment">Facsimile URLs</li>
+                <li class="fragment">Linking</li>
+            </ul>
+        </section>
+
+        <section>
+          <h1>The Future</h1>
+          <ul>
+              <li class="fragment">Support for more TEI tags</li>
+              <li class="fragment">Generate derivatives</li>
+              <li class="fragment">Output in other formats (PDF, plain text, ebook)</li>
+          </ul>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+            <h1>Questions about the ballads?</h1>
+            <p>OHMS is next.</p>
+        </section>
+
+        <section>
+            <h1>OHMS</h1>
+            <ul>
+                <li>Oral History Metadata Synchronizer</li>
+                <li>
+                    <a target="_blank" href="https://ohms.uky.edu/">
+                        OHMS App<br/>
+                        https://ohms.uky.edu/
+                    </a>
+                </li>
+                <li><a target="_blank" href="http://www.oralhistoryonline.org/">
+                    OHMS Viewer<br/>
+                    http://www.oralhistoryonline.org/
+                </a>j
+                </li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>OHMS</h1>
+            <ul>
+                <li>Media (audio or video)</li>
+                <li>Transcript</li>
+                <li>Index</li>
+                <li>Searching</li>
+                <li class="fragment">We added a few things as well</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Quick Demo</h1>
+            <ul>
+                <li>
+                    <a href="http://digital.lib.sfu.ca/techbc-collection/techbc-memory-project" target="_blank">30 Interviews</a>
+                </li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Collection of XML objects</li>
+                    <li>Audio as data stream</li>
+                    <li>Metadata, etc.</li>
+                </ul>
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Production</h1>
+            <ul>
+                <li>XML Files</li>
+                <li>Audio Files</li>
+                <li>Metadata</li>
+                <li>Thumbnail Images</li>
+                <li>Transcript PDF</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Preprocessing</h1>
+            <ul>
+                <li>Derivative Generation</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>Create a collection</li>
+                <li>Prepare and organize data</li>
+                <li>Batch load</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>Fetch media files</li>
+                <li class="fragment">
+                    drush iofm --recursive /home/vagrant/ohms/data
+                </li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li><del>Generate metadata</del></li>
+                <li><ins>Let the derivative generation stuff handle it.</ins></li>
+                <li class="fragment">Should have done this in the Lyrical Ballads.</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>Islandora Batch</li>
+                <li class="fragment">
+                    drush --user=admin iobp<br/>
+                    --namespace=ohms<br/>
+                    --parent=ohms:collection<br/>
+                    --recursive<br/>
+                    /home/vagrant/ohms/data
+                </li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Data Loading</h1>
+            <ul>
+                <li>One Islandora Object per Oral History</li>
+                <li class="fragment">Many data streams for each object:
+                    <ol>
+                        <li class="fragment">OBJ: XML produced by the OHMS Synchronizer</li>
+                        <li class="fragment">TN: A photo of the interviewee</li>
+                        <li class="fragment">MODS & DC: Metadata goodness generated by Islandora</li>
+                        <li class="fragment">TRANSCRIPT: PDF of the transcript</li>
+                        <li class="fragment">BIO: A plain text bio of the interviewee</li>
+                        <li class="fragment">NAMES: A CSV listing all the names the interviewee referenced</li>
+                    </ol>
+                </li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Example Datastreams</h1>
+            <p>
+                <a target="_blank" href="http://digital.lib.sfu.ca/islandora/object/techbc%253A74/manage/datastreams">Datastreams</a>
+            </p>
+        </section>
+
+        <section>
+            <h1>Display</h1>
+            <ul>
+                <li>OHMS Viewer</li>
+                <li>XML Transformation</li>
+                <li>Theming</li>
+                <li>Custom Tabs</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Display</h1>
+            <ul>
+                <li>No XSLT</li>
+                <li>OHMS Viewer</li>
+                <li>Limitations</li>
+                <li>Post Processing</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Display</h1>
+            <h2>OHMS Viewer</h2>
+            <ul>
+                <li>Fix the media URL</li>
+                <li>Searching</li>
+            </ul>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>In Production</h1>
+            <p>
+                <a href="http://digital.lib.sfu.ca/lyrical-ballads-39/home-page" target="_blank">
+                    http://digital.lib.sfu.ca/lyrical-ballads-39/home-page
+                </a>
+            </p>
+            <aside class="notes">
+            </aside>
+        </section>
+        
+        <section>
+            <h1>Questions about oral histories?</h1>
+            <p>Michael Joyce<br/>
+                mjoyce@sfu.ca<br/>
+                Bennett Library, <br/>
+                Simon Fraser University</p>
+        </section>
+                
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+         slideNumber: 'h.v',
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'plugin/zoom-js/zoom.js', async: true },
+             { src: 'plugin/notes/notes.js', async: true }
+         ]
+     });
+
+    </script>
+
+  </body>
+</html>
