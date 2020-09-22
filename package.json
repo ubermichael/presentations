@@ -1,0 +1,10 @@
+{
+  "name": "presentations",
+  "version": "1.0.0",
+  "main": "index.html",
+  "author": "Michael Joyce <ubermichael@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "reveal.js": "^4.0.2"
+  }
+}
