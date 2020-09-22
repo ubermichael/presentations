@@ -1,61 +1,39 @@
 <!-- -*- web -*- -->
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8"/>
+    <meta charset='utf-8' />
 
     <title>XML Databases &amp; Document Stores</title>
 
-    <meta name="description" content="How the SFU Library uses XML databases"/>
-    <meta name="author" content="Rebecca Dowson"/>
-    <meta name="author" content="Michael Joyce"/>
-    
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name='description' content='How the SFU Library uses XML databases' />
+    <meta name='author' content='Rebecca Dowson' />
+    <meta name='author' content='Michael Joyce' />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+
+    <link rel='stylesheet' href='lib/reveal.js/dist/reveal.css' />
+    <link rel='stylesheet' href='lib/reveal.js/dist/theme/black.css' id='theme' />
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
-
-    <!-- Printing and PDF exports -->
-    <script>
-     var link = document.createElement( 'link' );
-     link.rel = 'stylesheet';
-     link.type = 'text/css';
-     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
-     document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-
-    <style type="text/css" media="screen">
-      table{
-          color:lightgrey;
-      }
-    </style>
-
-    <!--
-         [if lt IE 9]>
-         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
-         <![endif]
-       -->
+    <link rel='stylesheet' href='lib/reveal.js/plugin/highlight/zenburn.css' />
   </head>
-
   <body>
 
-    <div class="reveal">
+    <div class='reveal'>
 
       <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+      <div class='slides'>
 
         <section>
           <h1>XML Databases &amp; Document Stores</h1>
           <p>
             Michael Joyce <br>
             Web and Data Services Developer<br>
-            Bennett Library, Simon Fraser University<br/>
-            <a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a>
+            Bennett Library, Simon Fraser University<br />
+            <a href='mailto:mjoyce@sfu.ca'>mjoyce@sfu.ca</a>
           </p>
         </section>
 
@@ -67,33 +45,31 @@
             <li>Images, audio, video</li>
             <li>PDF, eBook, HTML, XML, TXT</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>XPath</h1>
           <ul>
             <li>Find things in a document</li>
-          </ul>          
-          <div class="fragment">
+          </ul>
+          <div class='fragment'>
             <p>Find all HTML paragraphs</p>
             <pre><code>
               //xhtml:p
             </code></pre>
           </div>
 
-          <div class="fragment">
+          <div class='fragment'>
             <p>Find the title of a TEI document</p>
             <pre><code>
               //tei:teiHeader//title[1]/text()
             </code></pre>
           </div>
-          
-          <aside class="notes">
-          </aside>
+
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>XQuery</h1>
           <p>XPath, but much much more.</p>
@@ -101,14 +77,13 @@
             <li>Functional programming</li>
             <li>Declarative</li>
             <li>Happy.</li>
-            <li class="fragment">
+            <li class='fragment'>
               <pre><code>(: this is a comment :)</code></pre>
             </li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>FLWOR</h1>
           <pre><code>
@@ -118,18 +93,17 @@
             order by $count descending, $result
             return <li>{$count} - {$result/text()}</li>
           </code></pre>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
-            <h1>FLWOR</h1>
-            <pre><code>
+          <h1>FLWOR</h1>
+          <pre><code>
 &lt;li>8 - I am the very model...&lt/li>
 &lt;li>4 - I know our mythic history...
             </code></pre>
         </section>
-        
+
         <section>
           <h1>Indexing &amp; Searching</h1>
           <p>Text indexing provided by Lucene</p>
@@ -138,28 +112,26 @@
             <li>Tag names</li>
             <li>Attribute values</li>
           </ul>
-          <ul class="fragment">
+          <ul class='fragment'>
             <li>Attribute names</li>
             <li>Typed indexes</li>
             <li>XPath expressions</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>Analysis</h1>
-          <p>eXist doesn't include many textual analysis features<br/> out of the box.</p>
-          <div class="fragment">
-          <h2>Stanford Named Entity Recognizer</h2>
-          <ul>
-            <li>Personal Names</li>
-            <li>Locations</li>
-            <li>Dates</li>
-          </ul>
+          <p>eXist doesn't include many textual analysis features<br /> out of the box.</p>
+          <div class='fragment'>
+            <h2>Stanford Named Entity Recognizer</h2>
+            <ul>
+              <li>Personal Names</li>
+              <li>Locations</li>
+              <li>Dates</li>
+            </ul>
           </div>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -170,16 +142,14 @@
             <li>Plot the locations on a map</li>
             <li>Profit</li>
           </ol>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>Lakes District Online</h1>
           <p>Still a prototype, not ready for public consumption</p>
-          <p><a href="http://162.243.147.195:8080/exist/apps/engl434/map.html?f=4142.xml" target="_blank">link</a></p>
-          <aside class="notes">
-          </aside>
+          <p><a href='http://162.243.147.195:8080/exist/apps/engl434/map.html?f=4142.xml' target='_blank'>link</a></p>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -188,56 +158,45 @@
             <li>Find similar content</li>
             <li>Levenshtein/edit distance</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
           <h1>Wilde Trials</h1>
           <p>Transcribed newpaper reports from the trials of Oscar Wilde</p>
-          <p>Still a prototype, not ready for public consumption</p>          
-          <p><a href="http://162.243.147.195:8080/exist/apps/wilde/view.html?f=NYH_0102" target="_blank">link</a></p>
-          <aside class="notes">
-          </aside>
+          <p>Still a prototype, not ready for public consumption</p>
+          <p><a href='http://162.243.147.195:8080/exist/apps/wilde/view.html?f=NYH_0102' target='_blank'>link</a></p>
+          <aside class='notes'></aside>
         </section>
         <section>
           <h1>Questions</h1>
           <p>
-              Michael Joyce <br>
-              <a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a>
+            Michael Joyce <br>
+            <a href='mailto:mjoyce@sfu.ca'>mjoyce@sfu.ca</a>
           </p>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
       </div>
-
-    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
-    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+    </div>
+    <script src='lib/reveal.js/dist/reveal.js'></script>
+    <script src='lib/reveal.js/plugin/zoom/zoom.js'></script>
+    <script src='lib/reveal.js/plugin/notes/notes.js'></script>
+    <script src='lib/reveal.js/plugin/search/search.js'></script>
+    <script src='lib/reveal.js/plugin/markdown/markdown.js'></script>
+    <script src='lib/reveal.js/plugin/highlight/highlight.js'></script>
 
     <script>
 
-     // Full list of configuration options available at:
-     // https://github.com/hakimel/reveal.js#configuration
-     Reveal.initialize({
-         controls: true,
-         progress: true,
-         history: true,
-         center: true,
-         slideNumber: 'h.v',
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-         transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-         // Optional reveal.js plugins
-         dependencies: [
-             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
-             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
-         ]
-     });
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
 
     </script>
 

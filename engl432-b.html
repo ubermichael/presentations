@@ -1,52 +1,31 @@
 <!-- -*- web -*- -->
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8"/>
+    <meta charset='utf-8' />
 
     <title>XML &amp; The TEI Guidelines</title>
 
-    <meta name="description" content="A quick introduction to XML and the TEI Guidelines"/>
-    <meta name="author" content="Michael Joyce"/>
+    <meta name='description' content='A quick introduction to XML and the TEI Guidelines' />
+    <meta name='author' content='Michael Joyce' />
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
 
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+    <link rel='stylesheet' href='lib/reveal.js/dist/reveal.css' />
+    <link rel='stylesheet' href='lib/reveal.js/dist/theme/black.css' id='theme' />
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
-
-    <!-- Printing and PDF exports -->
-    <script>
-     var link = document.createElement( 'link' );
-     link.rel = 'stylesheet';
-     link.type = 'text/css';
-     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
-     document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-
-    <style type="text/css" media="screen">
-      table{
-          color:lightgrey;
-      }
-    </style>
-
-    <!--
-         [if lt IE 9]>
-         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
-         <![endif]
-       -->
+    <link rel='stylesheet' href='lib/reveal.js/plugin/highlight/zenburn.css' />
   </head>
 
   <body>
 
-    <div class="reveal">
+    <div class='reveal'>
 
       <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+      <div class='slides'>
 
         <section>
           <h1>XML &amp; the TEI Guidelines</h1>
@@ -54,8 +33,7 @@
           <p>
             Michael Joyce</a> <br>
             Web and Data Services Developer<br>
-            Bennett Library, Simon Fraser University
-          </p>
+            Bennett Library, Simon Fraser University </p>
           <p>
             <small>© Michael Joyce, ⅯⅯⅩⅤ</small><br>
             <small>Some rights reserved</small>
@@ -64,8 +42,7 @@
 
         <section>
           <h1>Trees in XML</h1>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -76,7 +53,7 @@
         </section>
 
         <section>
-        	<img data-src="engl432/xml-tree-01.png">
+          <img data-src='engl432/xml-tree-01.png'>
         </section>
 
         <section>
@@ -87,7 +64,7 @@
         </section>
 
         <section>
-        	<img data-src="engl432/xml-tree-02.png">
+          <img data-src='engl432/xml-tree-02.png'>
         </section>
 
 
@@ -99,7 +76,7 @@
         </section>
 
         <section>
-        	<img data-src="engl432/xml-tree-03.png">
+          <img data-src='engl432/xml-tree-03.png'>
         </section>
 
 
@@ -113,7 +90,7 @@
         </section>
 
         <section>
-        	<img data-src="engl432/xml-tree-04.png">
+          <img data-src='engl432/xml-tree-04.png'>
         </section>
 
 
@@ -123,8 +100,7 @@
           <pre><code>
           &lt;link title="This is a "title""/>
           </code></pre>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -133,8 +109,7 @@
           <pre><code>
           &lt;link title='This is a "title"'/>
           </code></pre>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -143,8 +118,7 @@
           <pre><code>
           &lt;link title="This is a &amp;quot;title&amp;quot;"/>
           </code></pre>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -156,18 +130,17 @@
           </ul>
         </section>
 
-          <section>
-            <h1>Special Characters</h1>
-            <p>XML defines four character entities</p>
-            <ul>
-              <li><tt>&amp;amp;</tt> - Ampersand &amp;</li>
-              <li><tt>&amp;lt;</tt> - Less than &lt;</li>
-              <li><tt>&amp;gt;</tt> - Greater than &gt;</li>
-              <li><tt>&amp;quot;</tt> - Double quotation mark "</li>
-            </ul>
-            <p>You can also define others</p>
-          <aside class="notes">
-          </aside>
+        <section>
+          <h1>Special Characters</h1>
+          <p>XML defines four character entities</p>
+          <ul>
+            <li><tt>&amp;amp;</tt> - Ampersand &amp;</li>
+            <li><tt>&amp;lt;</tt> - Less than &lt;</li>
+            <li><tt>&amp;gt;</tt> - Greater than &gt;</li>
+            <li><tt>&amp;quot;</tt> - Double quotation mark "</li>
+          </ul>
+          <p>You can also define others</p>
+          <aside class='notes'></aside>
         </section>
 
         <section>
@@ -178,60 +151,51 @@
             <li>Clean up the result</li>
             <li>Add tags</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
           <h1>XML Publishing</h1>
           <ul>
-            <li>Validation<br/>
-            <a href="http://www.teibyexample.org/xquery/TBEvalidator.xq">http://www.teibyexample.org/xquery/TBEvalidator.xq</a></li>
-            <li>Transform to HTML, ePub, PDF<br/>
-              <a href="http://tapasproject.org/">tapasproject.org</a></li>
-        	<li>Build a custom application<br/>
-        	<a href="http://162.243.147.195:8080/exist/apps/engl434">http://162.243.147.195:8080/<br/>exist/apps/engl434</a>
-        	</li>
+            <li>Validation<br />
+              <a href='http://www.teibyexample.org/xquery/TBEvalidator.xq'>http://www.teibyexample.org/xquery/TBEvalidator.xq</a>
+            </li>
+            <li>Transform to HTML, ePub, PDF<br />
+              <a href='http://tapasproject.org/'>tapasproject.org</a></li>
+            <li>Build a custom application<br />
+              <a href='http://162.243.147.195:8080/exist/apps/engl434'>http://162.243.147.195:8080/<br />exist/apps/engl434</a>
+            </li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
           <h1>Questions?</h1>
-          <p><a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a></p>
-          <aside class="notes">
-          </aside>
+          <p><a href='mailto:mjoyce@sfu.ca'>mjoyce@sfu.ca</a></p>
+          <aside class='notes'></aside>
         </section>
 
+      </div>
     </div>
 
-    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
-    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+    <script src='lib/reveal.js/dist/reveal.js'></script>
+    <script src='lib/reveal.js/plugin/zoom/zoom.js'></script>
+    <script src='lib/reveal.js/plugin/notes/notes.js'></script>
+    <script src='lib/reveal.js/plugin/search/search.js'></script>
+    <script src='lib/reveal.js/plugin/markdown/markdown.js'></script>
+    <script src='lib/reveal.js/plugin/highlight/highlight.js'></script>
 
     <script>
 
-     // Full list of configuration options available at:
-     // https://github.com/hakimel/reveal.js#configuration
-     Reveal.initialize({
-         controls: true,
-         progress: true,
-         history: true,
-         center: true,
-         slideNumber: 'h.v',
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-         transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-         // Optional reveal.js plugins
-         dependencies: [
-             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
-             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
-         ]
-     });
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
 
     </script>
 

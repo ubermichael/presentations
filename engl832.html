@@ -1,77 +1,55 @@
 <!-- -*- web -*- -->
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8"/>
+    <meta charset='utf-8' />
 
     <title>Engl 832 - TEI XML</title>
 
-    <meta name="description" content="A quick introduction to XML and the TEI Guidelines"/>
-    <meta name="author" content="Rebecca Dowson"/>
-    <meta name="author" content="Michael Joyce"/>
-    
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name='description' content='A quick introduction to XML and the TEI Guidelines' />
+    <meta name='author' content='Rebecca Dowson' />
+    <meta name='author' content='Michael Joyce' />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/reveal.css"/>
-    <link rel="stylesheet" href="bower/assets/reveal.js/css/theme/black.css" id="theme"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+
+    <link rel='stylesheet' href='lib/reveal.js/dist/reveal.css' />
+    <link rel='stylesheet' href='lib/reveal.js/dist/theme/black.css' id='theme' />
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="bower/assets/reveal.js/lib/css/zenburn.css"/>
-
-    <!-- Printing and PDF exports -->
-    <script>
-     var link = document.createElement( 'link' );
-     link.rel = 'stylesheet';
-     link.type = 'text/css';
-     link.href = window.location.search.match( /print-pdf/gi ) ? 'bower/assets/reveal.js/css/print/pdf.css' : 'bower/assets/reveal.js/css/print/paper.css';
-     document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-
-    <style type="text/css" media="screen">
-      table{
-          color:lightgrey;
-      }
-    </style>
-
-    <!--
-         [if lt IE 9]>
-         <script src="bower/assets/reveal.js/lib/js/html5shiv.js"></script>
-         <![endif]
-       -->
+    <link rel='stylesheet' href='lib/reveal.js/plugin/highlight/zenburn.css' />
   </head>
 
   <body>
 
-    <div class="reveal">
+    <div class='reveal'>
 
       <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+      <div class='slides'>
 
         <section>
           <h1>XML &amp; TEI</h1>
-          <p>Rebecca Dowson<br/>
-            Michael Joyce<br/>
+          <p>Rebecca Dowson<br />
+            Michael Joyce<br />
             Bennett Library, Simon Fraser University</p>
         </section>
 
         <section>
           <h1>XML</h1>
         </section>
-        
+
         <section>
           <h1>XML</h1>
           <ul>
-            <li class="fragment">Descriptive markup</li>
-            <li class="fragment">Unlimited Vocabulary</li>
-            <li class="fragment">Document types with limited vocabularies</li>
-            <li class="fragment">Data independent</li>
+            <li class='fragment'>Descriptive markup</li>
+            <li class='fragment'>Unlimited Vocabulary</li>
+            <li class='fragment'>Document types with limited vocabularies</li>
+            <li class='fragment'>Data independent</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>XML Structure</h1>
           <ul>
@@ -81,7 +59,7 @@
             <li class='fragment'>Content</li>
           </ul>
         </section>
-        
+
         <section>
           <h1>XML Document</h1>
           <ul>
@@ -89,52 +67,55 @@
             <li>Valid</li>
           </ul>
         </section>
-        
+
         <section>
           <h1>XML Tags</h1>
           <ul>
             <li>Tags have names, and come in three flavours</li>
             <li class='fragment'>Start and end with less-than and greater-than characters.</li>
-            <li class="fragment">Start tag: <pre><code>&lt;tagname></code></pre></li>
-            <li class="fragment">End tag: <pre><code>&lt;/tagname></code></pre></li>
-            <li class="fragment">Empty tag: <pre><code>&lt;tagname/></code></pre></li>
+            <li class='fragment'>Start tag:
+              <pre><code>&lt;tagname></code></pre>
+            </li>
+            <li class='fragment'>End tag:
+              <pre><code>&lt;/tagname></code></pre>
+            </li>
+            <li class='fragment'>Empty tag:
+              <pre><code>&lt;tagname/></code></pre>
+            </li>
           </ul>
-          <aside class="notes">
-          </aside>
-        </section>
-        
-        <section>
-          <h1>XML Tags</h1>
-          <ul>
-            <li class="fragment">Names are case sensitive.</li>
-            <li class="fragment">Names start with a letter.</li>
-            <li class="fragment">Names may contain digits, hyphens, underscores, and colons.</li>
-            <li class="fragment">Colons in names have a special purpose, so try to avoid them.</li>
-          </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
 
         <section>
           <h1>XML Tags</h1>
           <ul>
-            <li class="fragment">Well-formed: start tags must match up with an end tag.</li>
-            <li class='fragment'>Tags must be nested properly.</li>
+            <li class='fragment'>Names are case sensitive.</li>
+            <li class='fragment'>Names start with a letter.</li>
+            <li class='fragment'>Names may contain digits, hyphens, underscores, and colons.</li>
+            <li class='fragment'>Colons in names have a special purpose, so try to avoid them.</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
-        <section>
-          <img data-src='engl832/matryoshka.jpg' height="85%"/>
-          <p>Photo by <a href='https://www.flickr.com/photos/lukebosman/148365336'>Luke and Kate Bosman, Flickr</a>.</p>
-        </section>
-        
+
         <section>
           <h1>XML Tags</h1>
-            <pre class="fragment"><code>&lt;title part='main'>&lt;b>Frankie &amp; Johnny&lt;/b>&lt;/title></code></pre>
+          <ul>
+            <li class='fragment'>Well-formed: start tags must match up with an end tag.</li>
+            <li class='fragment'>Tags must be nested properly.</li>
+          </ul>
+          <aside class='notes'></aside>
         </section>
-        
+
+        <section>
+          <img data-src='engl832/matryoshka.jpg' height='85%' />
+          <p>Photo by <a href='https://www.flickr.com/photos/lukebosman/148365336'>Luke and Kate Bosman, Flickr</a>.</p>
+        </section>
+
+        <section>
+          <h1>XML Tags</h1>
+          <pre class='fragment'><code>&lt;title part='main'>&lt;b>Frankie &amp; Johnny&lt;/b>&lt;/title></code></pre>
+        </section>
+
         <section>
           <h1>Nesting</h1>
           <div class='fragment'><p>Don't do this:</p>
@@ -150,18 +131,17 @@
               </code></pre>
           </div>
         </section>
-                
+
         <section>
           <h1>XML Attributes</h1>
           <p>Start and empty tags can have attributes. End tags do not.</p>
           <p>Attributes have a name and a value.</p>
-            <pre class="fragment"><code>&lt;title part='main'>&lt;/title></code></pre>
-            <pre class="fragment"><code>&lt;pagebreak n="27"/></code></pre>
-            <pre class="fragment"><code>&lt;title part='main' font='gothic'>&lt;/title></code></pre>
-          <aside class="notes">
-          </aside>
+          <pre class='fragment'><code>&lt;title part='main'>&lt;/title></code></pre>
+          <pre class='fragment'><code>&lt;pagebreak n="27"/></code></pre>
+          <pre class='fragment'><code>&lt;title part='main' font='gothic'>&lt;/title></code></pre>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>XML Attributes</h1>
           <ul>
@@ -172,7 +152,7 @@
             <li class='fragment'>Order doesn't matter.</li>
           </ul>
         </section>
-        
+
         <section>
           <h1>Identifiers</h1>
           <ul>
@@ -188,8 +168,7 @@
           <pre class='fragment'><code>&lt;item xml:id="i_123-a">This might be item 123a.&lt;/item></code></pre>
           <pre class='fragment'><code>&lt;link ptr="#i_123-a">linking to it&lt;/link></code></pre>
         </section>
-        
-        
+
 
         <section>
           <h1>XML Elements</h1>
@@ -201,13 +180,13 @@
             <li class='fragment'>End tag (unless the tag is empty)</li>
           </ul>
         </section>
-                
+
         <section>
-          <img data-src="engl832/oak-tree.jpg" height="85%" />
-          <p>Photo by <a href="https://www.flickr.com/photos/127497725@N02/">
+          <img data-src='engl832/oak-tree.jpg' height='85%' />
+          <p>Photo by <a href='https://www.flickr.com/photos/127497725@N02/'>
             Sian Monument on Flickr</a>.</p>
         </section>
-        
+
         <section>
           <h1>Trees</h1>
           <ul>
@@ -217,40 +196,40 @@
             <li>Elements may have as many children as they need.</li>
           </ul>
         </section>
-        
+
         <section>
           <pre><code>
               Frankenstein; or,
                 the Modern Prometheus
             </code></pre>
         </section>
-        
+
         <section>
-          <img data-src="engl832/xml-tree-01.png" />
+          <img data-src='engl832/xml-tree-01.png' />
         </section>
-        
+
         <section>
           <pre><code>
               &lt;title>Frankenstein; or,
                 the Modern Prometheus&lt;/title>
             </code></pre>
         </section>
-        
+
         <section>
-          <img data-src="engl832/xml-tree-02.png" />
+          <img data-src='engl832/xml-tree-02.png' />
         </section>
-        
+
         <section>
           <pre><code>
               &lt;title>Frankenstein&lt;/title>; or,
               &lt;title>the Modern Prometheus&lt;/title>
             </code></pre>
         </section>
-        
+
         <section>
-          <img data-src="engl832/xml-tree-03.png" />
-        </section>        
-        
+          <img data-src='engl832/xml-tree-03.png' />
+        </section>
+
         <section>
           <pre><code>
               &lt;title>
@@ -259,24 +238,24 @@
               &lt;/title>
             </code></pre>
         </section>
-        
+
         <section>
-          <img data-src="engl832/xml-tree-04.png" />
+          <img data-src='engl832/xml-tree-04.png' />
         </section>
-        
+
         <section>
-          <img data-src='engl832/treeview.gif' height='85%'/>
+          <img data-src='engl832/treeview.gif' height='85%' />
         </section>
-        
+
         <section>
           <h1>XML Example</h1>
           <pre><code>
             <poem>
-              <stanza n="1">
+              <stanza n='1'>
                   I think that I shall never see&lt;linebreak />
                   A poem lovely as a tree.
               </stanza>
-              <stanza n="2">
+              <stanza n='2'>
                 A tree whose hungry mouth is prest&lt;linebreak />
                 Against the earth’s sweet flowing breast;
               </stanza>
@@ -284,72 +263,96 @@
             </poem>
           </code></pre>
           <p><small>Joyce Kilmer, Trees. <em>Poetry</em> August 1913.</small></p>
-          <aside class="notes">
+          <aside class='notes'>
             Unconstrained XML - I made up some elements and used them. That's legal.
           </aside>
         </section>
-        
+
         <section>
           <h1>Poem &amp; Stanza</h1>
           <ul>
-            <li class="fragment">I invented them</li>
-            <li class="fragment">And linebreak</li>
-            <li class="fragment">That's allowed!</li>
-            <li class="fragment">Yes. Everyone can (and does) invent their own XML vocabulary for their
-            own purpose.</li>
-            <li class="fragment">Yes. It's a big mess.</li>
+            <li class='fragment'>I invented them</li>
+            <li class='fragment'>And linebreak</li>
+            <li class='fragment'>That's allowed!</li>
+            <li class='fragment'>Yes. Everyone can (and does) invent their own XML vocabulary for their
+              own purpose.
+            </li>
+            <li class='fragment'>Yes. It's a big mess.</li>
           </ul>
         </section>
 
         <section>
           <h1>Deeper Introduction</h1>
           <p>
-            "A Gentle Introduction to XML" published by the TEI<br/>
-              <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html">
-                http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html</a>
+            "A Gentle Introduction to XML" published by the TEI<br />
+            <a href='http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html'>
+              http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html</a>
           </p>
         </section>
-        
+
         <section>
           <h1>XML Questions?</h1>
           <p class='fragment'>What if your document has less than or greater than symbols to encode?</p>
           <table class='fragment'>
-            <tr><th>Code</th><th>Character</th><th>Description</th></tr>
-            <tr><td>&amp;lt;</td><td>&lt;</td><td>less-than</td></tr>
-            <tr><td>&amp;gt;</td><td>&gt;</td><td>greater-than</td></tr>
-            <tr><td>&amp;quot;</td><td>&quot;</td><td>double quote</td></tr>
-            <tr><td>&amp;apos;</td><td>&apos;</td><td>apostrophe</td></tr>
-            <tr class='fragment'><td>&amp;amp;</td><td>&amp;</td><td>ampersand</td></tr>
+            <tr>
+              <th>Code</th>
+              <th>Character</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>&amp;lt;</td>
+              <td>&lt;</td>
+              <td>less-than</td>
+            </tr>
+            <tr>
+              <td>&amp;gt;</td>
+              <td>&gt;</td>
+              <td>greater-than</td>
+            </tr>
+            <tr>
+              <td>&amp;quot;</td>
+              <td>&quot;</td>
+              <td>double quote</td>
+            </tr>
+            <tr>
+              <td>&amp;apos;</td>
+              <td>&apos;</td>
+              <td>apostrophe</td>
+            </tr>
+            <tr class='fragment'>
+              <td>&amp;amp;</td>
+              <td>&amp;</td>
+              <td>ampersand</td>
+            </tr>
           </table>
-        </section>        
-        
+        </section>
+
         <section>
           <h1>TEI Guidelines</h1>
           <ul>
-            <li class="fragment">Constrained vocabulary</li>
-            <li class="fragment">Well defined meanings</li>
-            <li class="fragment">Specific structure</li>
-            <li class="fragment">Very customizable</li>
+            <li class='fragment'>Constrained vocabulary</li>
+            <li class='fragment'>Well defined meanings</li>
+            <li class='fragment'>Specific structure</li>
+            <li class='fragment'>Very customizable</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>TEI Guidelines</h1>
           <ul>
-            <li class="fragment">Full P5</li>
-            <li class="fragment">TEI Lite</li>
-            <li class="fragment">TEI Tite</li>
-            <li class="fragment">Drama</li>
-            <li class="fragment">Speech</li>
+            <li class='fragment'>Full P5</li>
+            <li class='fragment'>TEI Lite</li>
+            <li class='fragment'>TEI Tite</li>
+            <li class='fragment'>Drama</li>
+            <li class='fragment'>Speech</li>
           </ul>
         </section>
-        
+
         <section>
           <h1>TEI Structure</h1>
-          <p>We'll be using TEI Lite<br/>
-            <a href="http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html">
+          <p>We'll be using TEI Lite<br />
+            <a href='http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html'>
               http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html</a>
           </p>
         </section>
@@ -357,12 +360,12 @@
         <section>
           <p>Starts and ends with TEI tags</p>
           <pre><code>
-            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+            <TEI xmlns='http://www.tei-c.org/ns/1.0'>
               ...
             </TEI>
           </code></pre>
         </section>
-        
+
         <section>
           <h1>Header and Body</h1>
           <p>The TEI element has two children</p>
@@ -377,10 +380,9 @@
             &lt;/TEI>
           </code></pre>
           <p>We'll work on the text element for now.</p>
-            <aside class="notes">
-            </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>The Text</h1>
           <p>The text element has three children</p>
@@ -400,17 +402,16 @@
               &lt;/back>
             &lt;/text>
           </code></pre>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>Example Tags</h1>
           <ul>
             <li>
               <a href='http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html#hi' target='_blank'>
-              Highlight <code>&lt;hi>...&lt;/hi></code>
-            </a>
+                Highlight <code>&lt;hi>...&lt;/hi></code>
+              </a>
             </li>
             <li><a href='http://www.tei-c.org/release/doc/tei-p5-exemplars/html/tei_lite.doc.html#l' target='_blank'>
               Line <code>&lt;l>...&lt;l></code>
@@ -418,12 +419,12 @@
             </li>
           </ul>
         </section>
-        
+
         <section>
           <h1>Markup</h1>
           <ol>
-            <li class='fragment'>Large structure<br/>Line groups, headers, titles</li>
-            <li class='fragment'>Details<br />Lines, </li>
+            <li class='fragment'>Large structure<br />Line groups, headers, titles</li>
+            <li class='fragment'>Details<br />Lines,</li>
             <li class='fragment'>Normalisation</li>
           </ol>
         </section>
@@ -450,37 +451,36 @@
 
         <section>
           <h1>Markup Exercise</h1>
-          <p><a href='engl832/to-a-butterfly-1.png' target="_blank">Our poem.</a></p>
+          <p><a href='engl832/to-a-butterfly-1.png' target='_blank'>Our poem.</a></p>
         </section>
-        
+
         <section>
           <h1>Using oXygen</h1>
-          <p><a href='engl832/to-a-butterfly-1.txt' target="_blank">Our transcription.</a></p>
-          <p><a href='engl832/to-a-butterfly-1.xml' target="_blank">Our TEI XML.</a></p>
+          <p><a href='engl832/to-a-butterfly-1.txt' target='_blank'>Our transcription.</a></p>
+          <p><a href='engl832/to-a-butterfly-1.xml' target='_blank'>Our TEI XML.</a></p>
         </section>
-        
+
         <section>
           <h1>Granularity</h1>
           <p>What structures should be tagged?</p>
           <ul>
-            <li class="fragment">Major division: sections, chapters, paragraphs</li>
-            <li class="fragment">Smaller divisions: sentence, word, character</li>
+            <li class='fragment'>Major division: sections, chapters, paragraphs</li>
+            <li class='fragment'>Smaller divisions: sentence, word, character</li>
           </ul>
-          <aside class="notes">
-          </aside>
+          <aside class='notes'></aside>
         </section>
-        
+
         <section>
           <h1>Meaning</h1>
           <p>Should references be tagged?</p>
           <ul>
-            <li class="fragment">Place names, person names</li>
-            <li class="fragment">Dates, times, props</li>
+            <li class='fragment'>Place names, person names</li>
+            <li class='fragment'>Dates, times, props</li>
           </ul>
         </section>
-        
+
         <section>
-          <img data-src="engl832/hamlet.png" size="85%"/>
+          <img data-src='engl832/hamlet.png' size='85%' />
           <p>This is a too much.</p>
         </section>
 
@@ -490,43 +490,34 @@
 
         <section>
           <h1>Questions?</h1>
-          <p>Rebecca Dowson<br/>
-            <a href="mailto:rda26@sfu.ca">rda26@sfu.ca</a></p>
-          <p>Michael Joyce<br/>
-            <a href="mailto:mjoyce@sfu.ca">mjoyce@sfu.ca</a></p>
-          <aside class="notes">
-          </aside>
+          <p>Rebecca Dowson<br />
+            <a href='mailto:rda26@sfu.ca'>rda26@sfu.ca</a></p>
+          <p>Michael Joyce<br />
+            <a href='mailto:mjoyce@sfu.ca'>mjoyce@sfu.ca</a></p>
+          <aside class='notes'></aside>
         </section>
-        
+
       </div>
     </div>
 
-    <script src="bower/assets/reveal.js/lib/js/head.min.js"></script>
-    <script src="bower/assets/reveal.js/js/reveal.js"></script>
+    <script src='lib/reveal.js/dist/reveal.js'></script>
+    <script src='lib/reveal.js/plugin/zoom/zoom.js'></script>
+    <script src='lib/reveal.js/plugin/notes/notes.js'></script>
+    <script src='lib/reveal.js/plugin/search/search.js'></script>
+    <script src='lib/reveal.js/plugin/markdown/markdown.js'></script>
+    <script src='lib/reveal.js/plugin/highlight/highlight.js'></script>
 
     <script>
 
-     // Full list of configuration options available at:
-     // https://github.com/hakimel/reveal.js#configuration
-     Reveal.initialize({
-         controls: true,
-         progress: true,
-         history: true,
-         center: true,
-         slideNumber: 'h.v',
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-         transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-         // Optional reveal.js plugins
-         dependencies: [
-             { src: 'bower/assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: 'bower/assets/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-             { src: 'bower/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
-             { src: 'bower/assets/reveal.js/plugin/notes/notes.js', async: true }
-         ]
-     });
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
 
     </script>
 
