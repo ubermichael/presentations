@@ -1,0 +1,182 @@
+<!-- -*- web -*- -->
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+
+    <title>Git &amp; GitHub</title>
+
+    <meta name='description' content='A and practical introduction to Git and GitHub' />
+    <meta name='author' content='Rebecca Dowson' />
+
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+
+    <link rel='stylesheet' href='lib/reveal.js/dist/reveal.css' />
+    <link rel='stylesheet' href='lib/reveal.js/dist/theme/black.css' id='theme' />
+
+    <!-- Code syntax highlighting -->
+    <link rel='stylesheet' href='lib/reveal.js/plugin/highlight/zenburn.css' />
+
+  </head>
+
+  <body>
+
+    <div class='reveal'>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class='slides'>
+
+        <section>
+          <h1>Git &amp; GitHub</h1>
+          <p>Michael Joyce<br />
+            Bennett Library, Simon Fraser University</p>
+        </section>
+
+        <section>
+          <ul>
+            <li>First zoom workshop!</li>
+            <li>Please use the chat to ask questions.</li>
+            <li>Video is optional.</li>
+            <li>Pets are always welcome.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Digital Humanities Innovation Lab</h1>
+          <ul>
+            <li><a href='https://dhil.lib.sfu.ca'>dhil.lib.sfu.ca</a></li>
+            <li><a href='mailto:dhil@sfu.ca'>dhil@sfu.ca</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>GitHub account</li>
+            <li>GitHub Desktop installed</li>
+            <li>A text editor (Sublime text, BBEdit, or Atom)</li>
+            <li><a href='https://atom.io'>Atom.io</a> is recommended</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Some definitions</h2>
+          <dl>
+            <dt class='fragment' data-fragment-index='1'>Repository</dt>
+            <dd class='fragment' data-fragment-index='1'>A collection of files</dd>
+
+            <dt class='fragment' data-fragment-index='2'>Fork</dt>
+            <dd class='fragment' data-fragment-index='2'>A copy of a repository</dd>
+
+            <dt class='fragment' data-fragment-index='3'>Commit</dt>
+            <dd class='fragment' data-fragment-index='3'>Save a set of changes in a repository</dd>
+
+            <dt class='fragment' data-fragment-index='4'>Merge</dt>
+            <dd class='fragment' data-fragment-index='4'>Combine the changes in one repository with another</dd>
+
+            <dt class='fragment' data-fragment-index='5'>Pull Request</dt>
+            <dd class='fragment' data-fragment-index='5'>Ask for a merge</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h1>Git</h1>
+          <ul>
+            <li>A commandline tool to manage files and changes to files.</li>
+            <li class='fragment'>Designed by programmers</li>
+            <li class='fragment'>Designed for programmers</li>
+            <li class='fragment'>Not user friendly</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src='github/history.png' style='width:100%; height:auto'>
+        </section>
+
+
+        <section>
+          <h1>GitHub</h1>
+          <ul>
+            <li>Website to host repositories</li>
+            <li class='fragment'>Designed by programmers</li>
+            <li class='fragment'>Designed for programmers</li>
+            <li class='fragment'>Slightly user friendly</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>GitHub</h1>
+          <ul>
+            <li>And manage projects</li>
+            <li class='fragment'>Issues like bug reports and feature requests</li>
+            <li class='fragment'>Project management and progress tracking</li>
+            <li class='fragment'>Access controls</li>
+            <li class='fragment'>Repository history</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>GitHub Desktop</h1>
+          <ul>
+            <li>User-friendly interface to Git and GitHub</li>
+            <li class='fragment'>Download a forked repository</li>
+            <li class='fragment'>Create commits</li>
+            <li class='fragment'>Push the commits to GitHub</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Setup</h1>
+          <ul>
+            <li>Create a GitHub account</li>
+            <li class='fragment'>Fork the workshop repository</li>
+            <li class='fragment'>Download the forked repository</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Workflow</h1>
+          <ul>
+            <li>Make some changes to your local copy</li>
+            <li class='fragment'>Commit your changes</li>
+            <li class='fragment'>Push your changes to your GitHub</li>
+            <li class='fragment'>Create a pull request</li>
+            <li class='fragment'>Update your repository</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Questions</h1>
+          <p>After questions we will work <br>
+            through the setup and workflow.</p>
+        </section>
+
+      </div>
+    </div>
+
+
+    <script src='lib/reveal.js/dist/reveal.js'></script>
+    <script src='lib/reveal.js/plugin/zoom/zoom.js'></script>
+    <script src='lib/reveal.js/plugin/notes/notes.js'></script>
+    <script src='lib/reveal.js/plugin/search/search.js'></script>
+    <script src='lib/reveal.js/plugin/markdown/markdown.js'></script>
+    <script src='lib/reveal.js/plugin/highlight/highlight.js'></script>
+
+    <script>
+
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+
+    </script>
+
+  </body>
+</html>
